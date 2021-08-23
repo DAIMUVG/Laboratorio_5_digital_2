@@ -1,10 +1,9 @@
- /*UNIVERSIDAD DEL VALLE DE GUATEMALA 
- * File:   Lab05.c
- * Author: SELVIN E. PERALTA CIFUENTES
- *
- * Created on 12 de Agosto de 2021, 16:30 PM
- */
-//Configuraci髇 PIC16F887
+ // Dispositivo:    PIC 16F887
+// Hadward:        potenciometro, LCD
+// Autor:          Dylan Ixcayau 18486
+// Fecha Creada:   5 de agosto del 2021
+// Ultima Actualizacion:   
+//Configuraci贸n PIC16F887
 // CONFIG1
 #pragma config FOSC = INTRC_NOCLKOUT// Oscillator Selection bits (RCIO oscillator: I/O function on RA6/OSC2/CLKOUT pin, RC on RA7/OSC1/CLKIN)
 #pragma config WDTE = OFF       // Watchdog Timer Enable bit (WDT disabled and can be enabled by SWDTEN bit of the WDTCON register)
@@ -29,7 +28,7 @@
 #include "UART.h"
 #include <string.h>
 
-uint8_t PC = 0;       /*Declaraci髇 variables*/
+uint8_t PC = 0;       /*Declaraci贸n variables*/
 uint8_t cont;
 char s[20];
 //------------------------------Funciones---------------------------------------
@@ -88,15 +87,15 @@ void setup(void)
     PORTD = 0x00;
     
     PORTCbits.RC2 = 1;
-//--------------------configuraci髇 IOC-----------------------------------------
+//--------------------configuraci贸n IOC-----------------------------------------
     IOCBbits. IOCB0 = 1; 
     IOCBbits. IOCB1 = 1;
-//-------------------configuraci髇 del reloj------------------------------------
+//-------------------configuraci贸n del reloj------------------------------------
     OSCCONbits. IRCF2 = 1; 
     OSCCONbits. IRCF1 = 1;
     OSCCONbits. IRCF0 = 0;  //4Mhz
     OSCCONbits. SCS = 1;
-//--------------------configuraci髇 interrupci髇--------------------------------
+//--------------------configuraci贸n interrupci贸n--------------------------------
     INTCONbits. GIE = 1;        //Globales
     INTCONbits. RBIE = 1;       //IOCB
     INTCONbits. RBIF = 0;
@@ -104,7 +103,7 @@ void setup(void)
     PIE1bits.SSPIE = 1;
     PIR1bits.SSPIF = 0;
     
-//*--------------------------------1Configuraci髇 UART--------------------------
+//*--------------------------------1Configuraci贸n UART--------------------------
     config_UART();
    
 }
